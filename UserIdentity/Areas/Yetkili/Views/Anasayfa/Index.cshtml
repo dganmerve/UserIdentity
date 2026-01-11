@@ -1,0 +1,190 @@
+﻿@*@{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>*@
+@model IEnumerable<UserIdentity.Models.Tercih>
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+    </style>
+</head>
+</html>
+<body>
+    <div class="topnav">
+        <a class="active" href="/Yetkili/Anasayfa/Index">Home</a>
+        <a href="/Yetkili/AdminAccount/Index">Kullanıcılar</a>
+        <a href="/Yetkili/RoleAdmin/Create">Rol atama</a>
+        <a href="/Yetkili/RoleAdmin/Index">Roller</a>
+        @*<a href="/Tercihs">Başvuru Detayları</a>*@
+
+    </div>
+    <div class="text-left">
+        <h3>Admin Anasayfa</h3>
+    </div>
+
+</body>
+<p>
+    @Html.ActionLink("Yeni kişi ekle", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<hr />
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoyAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cinsiyet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeAciklamasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeninNiteligi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onay)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoyAdi)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Cinsiyet)*@
+                @if (item.Cinsiyet == true)
+                {
+                    <p>Kadın</p>
+                }
+                else
+                {
+                    <p>Erkek</p>
+                }
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjeAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjeAciklamasi)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.ProjeninNiteligi)*@
+                @if (item.ProjeninNiteligi == true)
+                {
+                    <p> Lisans</p>
+                }
+                else
+                {
+                    <p> Yüksek Lisans</p>
+                }
+            </td>
+            <td>
+                @if (item.Onay)
+                {
+                    <label class="label label-success">Onaylı</label>
+                }
+                else
+                {
+                    <label class="label label-danger">Onay Bekliyor</label>
+                }
+                @*@Html.DisplayFor(model => item.Onay)*@
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-xs" }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+</table>
+
+

@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "BasvuruEkle";
+    Layout = null;
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="/home/Index">Home</a>
+        <a href="/home/BasvuruEkle">Başvuru Ekle</a>
+        <a href="/admin">Kullanıcılar</a>
+        <a href="/RoleAdmin">Roller</a>
+        <a href="/RoleAdmin/create">Rol atama</a>
+
+    </div>
+    <h2>BasvuruEkle</h2>
+    <hr />
+
+    @using (Html.BeginForm())
+                {
+       
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="control-label col-md-3">Adınız</label>
+                <div class="col-md-9"></div>
+                @Html.TextBox("Adi", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="control-label col-md-3">Soyadınız</label>
+                <div class="col-md-9"></div>
+                @Html.TextBox("SoyAdi", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="control-label col-md-3">Cinsiyet</label>
+                <div class="col-md-9"></div>
+                Kadın:@Html.RadioButton("Cinsiyet", true)
+                Erkek:@Html.RadioButton("Cinsiyet", false)
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <div class="col-md-9"></div>
+                @Html.TextBox("Email", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Telefon</label>
+                <div class="col-md-9"></div>
+                @Html.TextBox("Telefon", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Adres</label>
+                <div class="col-md-9"></div>
+                @Html.TextArea("Adres", null, new { @class = "form-control" })
+            </div>
+            @*<div class="form-group">
+                <label for="exampleInputEmail1">Şehir</label>
+                <div class="col-md-9"></div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Lütfen bir şehir seçiniz</option>
+                    <option value="1">İstanbul</option>
+                    <option value="2">Ankara</option>
+                    <option value="3">İzmir</option>
+                    <option value="4">Samsun</option>
+                    <option value="5">Diyarbakır</option>
+                    <option value="6">Trabzon</option>
+                </select>
+            </div>*@
+            <div class="form-group">
+                <label for="exampleInputEmail1">Proje Adı</label>
+                <div class="col-md-9"></div>
+                @Html.TextBox("ProjeAdi", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Proje Açıklaması</label>
+                <div class="col-md-9"></div>
+                @Html.TextArea("ProjeAciklamasi", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="control-label col-md-3">Projenin Niteliği</label>
+                <div class="col-md-9"></div>
+                Lisans:@Html.RadioButton("Projeninniteligi", true)
+                Yüksek Lisans:@Html.RadioButton("Projeninniteligi", false)
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="control-label col-md-3">Onay</label>
+                <div class="col-md-9"></div>
+                Onaylandı:@Html.RadioButton("Onay", true)
+                Onaylanmadı:@Html.RadioButton("Onay", false)
+            </div>
+            <div class="mb-3">
+                <input type="file" class="form-control" aria-label="file example" required>
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+                <br />
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3-sm-9">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+    }
+    </body>
+<</html>

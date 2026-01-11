@@ -1,0 +1,174 @@
+﻿@model UserIdentity.Models.Tercih
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+@*<h2>Details</h2>*@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="/Yetkili/Anasayfa/Index">Home</a>
+
+        @*<a href="/admin">Kullanıcılar</a>
+        <a href="/RoleAdmin">Roller</a>
+        <a href="/RoleAdmin/create">Rol atama</a>*@
+
+    </div>
+
+
+    <div class=" container">
+        <div>
+            <h4>Başvuru Detayı</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Adi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SoyAdi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SoyAdi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cinsiyet)
+                </dt>
+
+                <dd>
+                    @if (Model.Cinsiyet == true)
+                    {
+                        <label>Kadın</label>
+                    }
+                    else
+                    {
+                        <label>Erkek</label>
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Telefon)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Telefon)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Adres)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Adres)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProjeAdi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProjeAdi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProjeAciklamasi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProjeAciklamasi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProjeninNiteligi)
+                </dt>
+
+                <dd>
+                    @if (Model.ProjeninNiteligi == true)
+                    {
+                        <label>Lisans</label>
+                    }
+                    else
+                    {
+                        <label>Yüksek Lisans</label>
+                    }
+                </dd>
+                
+            <dt>
+                Onay
+            </dt>
+
+            <dd>
+                @if (Model.Onay == true)
+                {
+                    <label>Onaylandı</label>
+                }
+                else
+                {
+                    <label>Onaylanmadı</label>
+                }
+                @*@Html.DisplayFor(model => model.Onay)*@
+            </dd>
+            </dl>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Listeye Dön", "Index")
+    </p>

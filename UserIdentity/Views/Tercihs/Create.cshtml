@@ -1,0 +1,129 @@
+﻿@model UserIdentity.Models.Tercih
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Başvuru Ekle</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Adi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Adi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SoyAdi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.SoyAdi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SoyAdi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cinsiyet, new { @class = "control-label col-md-2" })
+                <div class="col-md-10" style="color:#333">
+                    @Html.RadioButton("model => model.Cinsiyet", true)
+                    @Html.ValidationMessageFor(model => model.Cinsiyet, "Kadın")
+
+                    @Html.RadioButton("model => model.Cinsiyet", false)
+                    @Html.ValidationMessageFor(model => model.Cinsiyet, "Erkek")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefon, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adres, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Adres, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProjeAdi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.ProjeAdi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProjeAdi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProjeAciklamasi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.ProjeAciklamasi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProjeAciklamasi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProjeninNiteligi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10" style="color:#333">
+                    @Html.RadioButton("model => model.ProjeninNiteligi", true)
+                    @Html.ValidationMessageFor(model => model.ProjeninNiteligi, "Lisans")
+
+                    @Html.RadioButton("model => model.ProjeninNiteligi", false)
+                    @Html.ValidationMessageFor(model => model.ProjeninNiteligi, "Yüksek Lisans")
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <label for="exampleInputEmail1" class="control-label col-md-2">Dosya Yükleme</label>
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="file" class="form-control" aria-label="file example" required>
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="control-label col-md-2">Dosya Yükleme</label>
+                <div class="col-md-offset-2 col-md-10">
+                    @using (Html.BeginForm("Upload", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <input type="file" name="uploadingFiles" />
+                    }
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<hr />
+<div>
+    @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "btn btn-primary" })
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

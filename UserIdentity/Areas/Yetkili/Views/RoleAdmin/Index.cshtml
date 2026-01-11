@@ -1,0 +1,170 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+</html>
+
+@*<style>
+        body {
+            background-color: mediumpurple;
+        }
+    </style>*@
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            padding-top: 100px;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+    </style>
+</head>
+<body>
+    @*<div class="panel-heading">
+            Users
+        </div>*@
+    <div class="topnav">
+        <a class="active" href="/Yetkili/Anasayfa/Index">Home</a>
+        <a href="/Yetkili/AdminAccount/Index">Kullanıcılar</a>
+        <a href="/Yetkili/RoleAdmin/Create">Rol atama</a>
+        @*<a href="/Yetkili/RoleAdmin/Index">Roller</a>*@
+        @*<a href="/Tercihs">Başvuru Detayları</a>*@
+    </div>
+</body>
+</html>
+
+@*<div class="panel panel-primary">
+        <div class="panel-heading">
+            Roller
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+
+            @if (Model.Count() == 0)
+            {
+
+
+                <tr>
+                    <td colspan="3"> Rol Yok</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var role in Model)
+                {
+                    <tr>
+                        <td>@role.Id</td>
+                        <td>@role.Name</td>
+                        <td>
+                            @using (Html.BeginForm("Delete", "RoleAdmin", new { id = role.Id }))
+                            {
+                                @Html.ActionLink("Güncelle", "Edit", new { id = role.Id }, new { @class = "btn btn-primary btn-sm" })
+                                <button type="submit" class="btn btn-danger  btn-sm">Delete</button>
+                            }
+
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>*@
+
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Roller
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th></th>
+            </tr>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="3">Rol Yok</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var role in Model)
+                {
+                    <tr>
+                        <td>@role.Id</td>
+                        <td>@role.Name</td>
+                        <td>
+                            @using (Html.BeginForm("Delete", "RoleAdmin", new { id = role.Id }))
+                            {
+                                @Html.ActionLink("Güncelle", "Edit", new { id = role.Id }, new { @class = "btn btn-primary btn-sm" })
+
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>}
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

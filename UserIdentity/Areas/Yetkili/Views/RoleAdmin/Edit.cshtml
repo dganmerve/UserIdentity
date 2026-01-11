@@ -1,0 +1,173 @@
+﻿ @*@model UserIdentity.Models.RoleEditModel
+    @{
+        ViewBag.Title = "Edit";
+    }
+    @using (Html.BeginForm())
+    {
+        <input type="hidden" name="roleName" value="@Model.Role.Name" />
+        <input type="hidden" name="RoleId" value="@Model.Role.Id" />
+
+        <div class="panel panel-primary">
+            <div class=" panel-heading">
+                Add to @Model.Role.Name
+            </div>
+            <table class="table table-striped">
+                @if (Model.NonMembers.Count() == 0)
+                {
+                    <tr><td colspan="2">bu role eklenebilecek kullanıcı yok</td></tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            User Id
+                        </td>
+                        <td>Role</td>
+                    </tr>
+                    foreach (var user in Model.NonMembers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+        <div class="panel panel-primary">
+            <div class=" panel-heading">
+                Remove from @Model.Role.Name
+            </div>
+            <table class="table table-striped">
+                @if (Model.Members.Count() == 0)
+                {
+                    <tr><td colspan="2">bu role eklenmiş kullanıcı yok</td></tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            User
+                        </td>
+                        <td>Role</td>
+                    </tr>
+                    foreach (var user in Model.Members)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="IdsToDelete" value="@user.Id" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>*@
+<!--}-->
+@model UserIdentity.Models.RoleEditModel
+@{ ViewBag.Title = "Edit";
+    Layout = null;
+    }
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+</html>
+
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="roleName" value="@Model.Role.Name" />
+    <input type="hidden" name="RoleId" value="@Model.Role.Id" />
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Add to @Model.Role.Name
+        </div>
+        <table class="table table-striped">
+            @if (Model.NonMembers.Count() == 0)
+            {
+                <tr><td colspan="2">Bu Role eklenebilecek kullanıcı yok</td></tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        User
+                    </td>
+                    <td>Role</td>
+                </tr>
+                foreach (var user in Model.NonMembers)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>
+                            <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Remove from @Model.Role.Name
+        </div>
+        <table class="table table-striped">
+            @if (Model.Members.Count() == 0)
+            {
+                <tr><td colspan="2">Bu Role eklenmiş bir kullanıcı yok </td></tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        User
+                    </td>
+                    <td>Role</td>
+                </tr>
+                foreach (var user in Model.Members)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>
+                            <input type="checkbox" name="IdsToDelete" value="@user.Id" />
+
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+}

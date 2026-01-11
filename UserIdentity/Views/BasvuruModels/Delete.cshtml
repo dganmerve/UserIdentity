@@ -1,0 +1,132 @@
+﻿@model UserIdentity.Models.BasvuruModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @* <title>Bootstrap Example</title>*@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Home/Index">Ana Sayfa</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/home/basvuruekle">Başvuru Ekle</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/Account/Logout"><span class="glyphicon glyphicon-off"></span>Çıkış Yap</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <h2 class="text-center">Başvuru Sil</h2>
+    <div class="container">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Isim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Isim)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoyIsim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoyIsim)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefon)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adres)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adres)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjeAdi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProjeAdi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aciklama)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SehirSec)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SehirSec)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Onay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Onay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dateTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dateTime)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-primary" /> |
+                @Html.ActionLink("Başvuru Listesine Dön", "Index")
+            </div>
+        }
+    </div>
+    </body>
+</html>

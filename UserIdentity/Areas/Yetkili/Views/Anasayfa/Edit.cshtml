@@ -1,0 +1,174 @@
+﻿@model UserIdentity.Models.Tercih
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+
+@*<h2>Edit</h2>*@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="/Yetkili/Anasayfa/Index">Home</a>
+        @*<a href="/admin">Kullanıcılar</a>
+        <a href="/RoleAdmin">Roller</a>
+        <a href="/RoleAdmin/create">Rol atama</a>*@
+
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4>Tercih</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adi,  new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Adi,new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Adi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SoyAdi,new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SoyAdi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SoyAdi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cinsiyet, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.RadioButtonFor(model => model.Cinsiyet, true)
+                    @Html.ValidationMessageFor(model => model.Cinsiyet, "Kadın")
+
+                    @Html.RadioButtonFor(model => model.Cinsiyet, false)
+                    @Html.ValidationMessageFor(model => model.Cinsiyet, "Erkek")
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email,new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefon, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Telefon, new{ @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adres, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Adres,new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProjeAdi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProjeAdi, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProjeAdi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProjeAciklamasi,new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProjeAciklamasi,new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProjeAciklamasi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProjeninNiteligi, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.RadioButtonFor(model => model.ProjeninNiteligi, true)
+                    @Html.ValidationMessageFor(model => model.ProjeninNiteligi, "Lisans")
+
+                    @Html.RadioButtonFor(model => model.ProjeninNiteligi, false)
+                    @Html.ValidationMessageFor(model => model.ProjeninNiteligi, "Yüksek Lisans")
+                </div>
+            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Onay, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.RadioButtonFor(model => model.Onay, true)
+                        @Html.ValidationMessageFor(model => model.Onay, "Onayla", new { @class = "btn btn-success" })
+
+                        @Html.RadioButtonFor(model => model.Onay, false)
+                        @Html.ValidationMessageFor(model => model.Onay, "Reddet", new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+      
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+    }
+
+    <div>
+        @Html.ActionLink("Listeye Dön", "Index",null,new { @class = "btn btn-primary" })
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
